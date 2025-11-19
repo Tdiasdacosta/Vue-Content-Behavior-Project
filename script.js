@@ -1,34 +1,38 @@
+// script.js
 new Vue({
-  el: '#app',
+  el: "#app",
   data: {
     index: 0,
-    showDef: false,
-    items: window.items // référence globale
+  },
+  computed: {
+    current() {
+      return items[this.index];
+    }
   },
   methods: {
-    nextItem() {
-      this.index = (this.index + 1) % this.items.length;
-      this.showDef = false;
+    next() {
+      if (this.index < items.length - 1) {
+        this.index++;
+      } else {
+        this.index = 0;
+      }
     },
-    prevItem() {
-      this.index = (this.index - 1 + this.items.length) % this.items.length;
-      this.showDef = false;
-    },
-    toggleShow() {
-      this.showDef = !this.showDef;
+    previous() {
+      if (this.index > 0) {
+        this.index--;
+      } else {
+        this.index = items.length - 1;
+      }
     }
   },
   template: `
     <div class="viewer">
-      <img :src="items[index].image" :alt="items[index].title" class="img" />
-      <h2 v-if="!showDef">{{items[index].title}}</h2>
-      <p v-else>{{items[index].definition}}</p>
-      <button @click="toggleShow">
-        {{ showDef ? "Affiche le titre" : "Affiche la définition" }}
-      </button>
+      <h2>{{ current.title }}</h2>
+      <img :src="current.src" class="img">
+
       <div class="nav">
-        <button @click="prevItem">&lt; Précédent</button>
-        <button @click="nextItem">Suivant &gt;</button>
+        <button @click="previous">Précédent</button>
+        <button @click="next">Suivant</button>
       </div>
     </div>
   `
