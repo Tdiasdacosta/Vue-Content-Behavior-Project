@@ -6,7 +6,7 @@ This project was created as part of the Vue.js introductory assignment.
 
 ## ✔ Features
 - Uses Vue.js via CDN  
-- External data file (`items.js`) containing an array of objects  
+- External data file (`data.js`) containing an array of objects  
 - Toggle between *title* and *definition*  
 - Always displays an image  
 - Navigation buttons to switch between items  
