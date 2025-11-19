@@ -2,7 +2,7 @@
 new Vue({
   el: "#app",
   data: {
-    index: 0,
+    index: 0
   },
   computed: {
     current() {
@@ -11,18 +11,10 @@ new Vue({
   },
   methods: {
     next() {
-      if (this.index < items.length - 1) {
-        this.index++;
-      } else {
-        this.index = 0;
-      }
+      this.index = (this.index + 1) % items.length;
     },
     previous() {
-      if (this.index > 0) {
-        this.index--;
-      } else {
-        this.index = items.length - 1;
-      }
+      this.index = (this.index - 1 + items.length) % items.length;
     }
   },
   template: `
@@ -34,6 +26,10 @@ new Vue({
         <button @click="previous">Précédent</button>
         <button @click="next">Suivant</button>
       </div>
+    </div>
+  `
+});
+
     </div>
   `
 });
