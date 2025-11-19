@@ -1,18 +1,18 @@
-// Tableau d’objets exemple
-var items = [
+// data.js
+const items = [
   {
-    title: "Chat",
-    definition: "Un animal domestique apprécié pour sa compagnie.",
-    image: "https://placekitten.com/200/200"
+    id: 1,
+    title: "Image 1",
+    src: "https://picsum.photos/200?random=1"
   },
   {
-    title: "Chien",
-    definition: "Un fidèle compagnon réputé pour son intelligence.",
-    image: "https://placedog.net/200/200"
+    id: 2,
+    title: "Image 2",
+    src: "https://picsum.photos/200?random=2"
   },
   {
-    title: "Lapin",
-    definition: "Petit animal herbivore aux grandes oreilles.",
-    image: "https://placekitten.com/201/201"
+    id: 3,
+    title: "Image 3",
+    src: "https://picsum.photos/200?random=3"
   }
 ];
